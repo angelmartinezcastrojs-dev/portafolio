@@ -1,0 +1,29 @@
+
+.circle {
+    width: 12rem;
+    height: 12rem;
+    animation-name: change-size;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes change-size {
+    0% {
+        width: 12rem;
+        height: 12rem;
+    }
+    50% {
+        width: 14rem;
+        height: 14rem;
+    }
+    100% {
+        width: 12rem;
+        height: 12rem;
+    }
+}
+
+.about-me {
+    width: 0.5rem;
+    height: .5rem;
+}

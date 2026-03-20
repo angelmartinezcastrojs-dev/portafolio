@@ -1,0 +1,7 @@
+import { Routes } from '@angular/router';
+import { AboutMe } from './pages/about-me/about-me';
+
+export const routes: Routes = [{
+    path: '',
+    component: AboutMe
+}];
