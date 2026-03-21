@@ -1,1 +1,70 @@
-<p>experience works!</p>
+<div class="min-h-screen bg-[#f3f4f6] p-4 md:p-10 font-sans text-black">
+  <div class="max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="flex flex-col mb-12">
+      <div class="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase opacity-60 mb-2">
+        <span class="w-2 h-2 bg-[#7c5dfa] rounded-full animate-pulse"></span>
+        Trayectoria Profesional
+      </div>
+      <h1 class="text-6xl font-black tracking-tighter leading-none mb-4">Experiencia</h1>
+      <div class="w-20 h-1 bg-[#7c5dfa] rounded-full"></div>
+    </div>
+
+    <!-- Timeline Container -->
+    <div class="relative">
+      <!-- Vertical Line -->
+      <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#7c5dfa] via-[#FF8A80] to-[#FFD54F] opacity-30"></div>
+
+      <!-- Experience Items -->
+      <div class="space-y-12">
+        @for (exp of experiences; track exp.company; let i = $index) {
+          <div class="relative flex flex-col md:flex-row items-center group">
+            <!-- Timeline Dot -->
+            <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-[#f3f4f6] bg-[#7c5dfa] z-10 transition-transform duration-300 group-hover:scale-150 group-hover:bg-[#FF8A80]"></div>
+
+            <!-- Content Card -->
+            <div [ngClass]="{'md:text-right md:pr-16': i % 2 === 0, 'md:pl-16 md:ml-auto': i % 2 !== 0}" 
+                 class="w-full md:w-1/2 pl-12 md:pl-0">
+              <div class="bg-white p-8 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-500 border border-transparent hover:border-[#7c5dfa]/10 relative overflow-hidden group/card">
+                
+                <!-- Decorative element -->
+                <div class="absolute -top-6 -right-6 w-24 h-24 bg-[#7c5dfa]/5 rounded-full group-hover/card:scale-150 transition-transform duration-700"></div>
+
+                <span class="inline-block px-4 py-1 rounded-full bg-[#7c5dfa]/10 text-[#7c5dfa] text-[10px] font-black uppercase tracking-widest mb-4">
+                  {{ exp.period }}
+                </span>
+                
+                <h3 class="text-2xl font-black tracking-tight mb-1 group-hover/card:text-[#7c5dfa] transition-colors">
+                  {{ exp.role }}
+                </h3>
+                
+                <p class="text-sm font-bold text-gray-500 mb-4 flex items-center gap-2" [ngClass]="{'md:justify-end': i % 2 === 0}">
+                  <span class="w-4 h-[1px] bg-gray-300"></span>
+                  {{ exp.company }}
+                </p>
+                
+                <p class="text-xs font-medium text-gray-400 leading-relaxed">
+                  {{ exp.description }}
+                </p>
+
+                <!-- Corner Accent -->
+                <div class="absolute bottom-0 right-0 w-8 h-8 opacity-0 group-hover/card:opacity-100 transition-opacity">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 32L0 32C0 32 12 32 20 24C28 16 32 0 32 0L32 32Z" fill="#7c5dfa" fill-opacity="0.1"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Call to action -->
+    <div class="mt-20 text-center">
+      <button class="px-10 py-4 bg-black text-white rounded-full text-xs font-black uppercase tracking-widest hover:bg-[#7c5dfa] transition-all transform hover:-translate-y-1 shadow-lg">
+        Descargar CV Completo ↓
+      </button>
+    </div>
+  </div>
+</div>
