@@ -7,10 +7,10 @@
         </svg>
       </a>
     
-    <a href="/" class="text-black text-lg font-black tracking-tight">Sobre mi</a>
-    <a href="/proyectos" class="text-black text-lg font-black tracking-tight">Proyectos</a>
-    <a href="/experencia" class="text-black text-lg font-black tracking-tight">Experiencia</a>
-    <a href="/contacto" class="text-black text-lg font-black tracking-tight">Contacto</a>
-    <a href="/arte" class="text-black text-lg font-black tracking-tight">Arte</a>
+    <a routerLink="/" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }" class="text-black text-lg font-black tracking-tight">Sobre mi</a>
+    <a routerLink="/proyectos" [routerLinkActive]="'active'" class="text-black text-lg font-black tracking-tight">Proyectos</a>
+    <a routerLink="/experience" [routerLinkActive]="'active'" class="text-black text-lg font-black tracking-tight">Experiencia</a>
+    <a routerLink="/contacto" [routerLinkActive]="'active'" class="text-black text-lg font-black tracking-tight">Contacto</a>
+    <!-- <a routerLink="/arte" class="text-black text-lg font-black tracking-tight">Arte</a> -->
     </div>
 </nav>
