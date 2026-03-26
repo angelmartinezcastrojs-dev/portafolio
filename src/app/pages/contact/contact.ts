@@ -9,7 +9,6 @@ import { faEnvelope, faMapMarkerAlt, faPhoneAlt } from '@fortawesome/free-solid-
   standalone: true,
   imports: [CommonModule, FontAwesomeModule],
   templateUrl: './contact.html',
-  styleUrl: './contact.css',
 })
 export class Contact {
   faEnvelope = faEnvelope;
