@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Label } from '../../components/label/label';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 interface Tech {
   name: string;
@@ -8,11 +10,12 @@ interface Tech {
 
 @Component({
   selector: 'app-about-me',
-  imports: [Label],
+  imports: [Label, FontAwesomeModule],
   templateUrl: './about-me.html',
   styleUrl: './about-me.css',
 })
 export class AboutMe {
+  faEnvelope = faEnvelope;
   techs: Tech[] = [
     {
       name: 'Angular',
@@ -57,6 +60,10 @@ export class AboutMe {
     {
       name: 'Ubuntu',
       image: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/UbuntuCoF.svg',
+    },
+    {
+      name: 'AWS EC2',
+      image: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*h78te1Nr-bUgqCtmFylC_g.png'
     },
   ];
 }

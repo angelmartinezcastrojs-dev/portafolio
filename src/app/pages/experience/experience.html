@@ -1,5 +1,5 @@
 <div class="min-h-screen bg-[#f3f4f6] p-4 md:p-10 font-sans text-black">
-  <div class="max-w-4xl mx-auto">
+  <div class="max-w-6xl mx-auto">
     <!-- Header -->
     <div class="flex flex-col mb-12">
       <div class="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase opacity-60 mb-2">
@@ -16,15 +16,16 @@
       <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#7c5dfa] via-[#FF8A80] to-[#FFD54F] opacity-30"></div>
 
       <!-- Experience Items -->
-      <div class="space-y-12">
+      <div class="space-y-16">
         @for (exp of experiences; track exp.company; let i = $index) {
           <div class="relative flex flex-col md:flex-row items-center group">
+            
             <!-- Timeline Dot -->
             <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-[#f3f4f6] bg-[#7c5dfa] z-10 transition-transform duration-300 group-hover:scale-150 group-hover:bg-[#FF8A80]"></div>
 
-            <!-- Content Card -->
-            <div [ngClass]="{'md:text-right md:pr-16': i % 2 === 0, 'md:pl-16 md:ml-auto': i % 2 !== 0}" 
-                 class="w-full md:w-1/2 pl-12 md:pl-0">
+            <!-- Left Side (Card or Image) -->
+            <div class="w-full md:w-1/2 mb-8 md:mb-0" [ngClass]="{'md:order-1 md:pr-16': i % 2 === 0, 'md:order-2 md:pl-16': i % 2 !== 0}">
+              <!-- Content Card -->
               <div class="bg-white p-8 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-500 border border-transparent hover:border-[#7c5dfa]/10 relative overflow-hidden group/card">
                 
                 <!-- Decorative element -->
@@ -38,15 +39,15 @@
                   {{ exp.role }}
                 </h3>
                 
-                <p class="text-sm font-bold text-gray-500 mb-4 flex items-center gap-2" [ngClass]="{'md:justify-end': i % 2 === 0}">
+                <p class="text-sm font-bold text-gray-500 mb-4 flex items-center gap-2">
                   <span class="w-4 h-[1px] bg-gray-300"></span>
                   {{ exp.company }}
                 </p>
-                
-                <p class="text-xs font-medium text-gray-400 leading-relaxed">
-                  {{ exp.description }}
-                </p>
-
+                @for (item of exp.description; track item) {
+                  <p class="text-xs font-medium text-gray-400 leading-relaxed">
+                    {{ item }}
+                  </p>
+                }
                 <!-- Corner Accent -->
                 <div class="absolute bottom-0 right-0 w-8 h-8 opacity-0 group-hover/card:opacity-100 transition-opacity">
                   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -55,6 +56,28 @@
                 </div>
               </div>
             </div>
+
+            <!-- Right Side (Image or Card) -->
+            <div class="w-full md:w-1/2 flex items-center justify-center pl-12 md:pl-0" [ngClass]="{'md:order-2 md:pl-16': i % 2 === 0, 'md:order-1 md:pr-16': i % 2 !== 0}">
+              <!-- Image Container -->
+              <div class="relative w-full max-w-[350px] aspect-square rounded-[2.5rem] overflow-hidden group/img shadow-md hover:shadow-2xl transition-all duration-500">
+                <img [src]="exp.image" class="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-700" [alt]="exp.company">
+                
+                <!-- Overlay Decoration -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#7c5dfa]/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                   <div class="text-white">
+                      <p class="text-[10px] font-black uppercase tracking-widest">{{ exp.company }}</p>
+                      <p class="text-xs font-bold">{{ exp.period }}</p>
+                   </div>
+                </div>
+
+                <!-- Floating Badge -->
+                <div class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-lg shadow-lg transform -rotate-12 group-hover/img:rotate-0 transition-transform">
+                  💼
+                </div>
+              </div>
+            </div>
+
           </div>
         }
       </div>

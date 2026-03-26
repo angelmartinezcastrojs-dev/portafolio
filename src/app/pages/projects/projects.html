@@ -1,0 +1,127 @@
+<div class="min-h-screen bg-[#f3f4f6] p-4 md:p-10 font-sans text-black">
+  <div class="max-w-6xl mx-auto">
+    <!-- Header -->
+    <div class="flex flex-col mb-12">
+      <div class="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase opacity-60 mb-2">
+        <span class="w-2 h-2 bg-[#7c5dfa] rounded-full animate-pulse"></span>
+        Creative Works
+      </div>
+      <h1 class="text-6xl font-black tracking-tighter leading-none mb-4">Projects</h1>
+      <div class="w-20 h-1 bg-[#7c5dfa] rounded-full"></div>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap gap-4 mb-12">
+      <button (click)="setCategory('all')" 
+              [ngClass]="selectedCategory === 'all' ? 'bg-black text-white' : 'bg-white text-black hover:bg-gray-100'"
+              class="px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all shadow-sm">
+        All Works
+      </button>
+      <button (click)="setCategory('personal')" 
+              [ngClass]="selectedCategory === 'personal' ? 'bg-[#7c5dfa] text-white' : 'bg-white text-black hover:bg-gray-100'"
+              class="px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all shadow-sm">
+        Personal
+      </button>
+      <button (click)="setCategory('professional')" 
+              [ngClass]="selectedCategory === 'professional' ? 'bg-[#FF8A80] text-white' : 'bg-white text-black hover:bg-gray-100'"
+              class="px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all shadow-sm">
+        Professional
+      </button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      @for (project of filteredProjects; track project.title) {
+        <div class="group relative bg-white rounded-[2.5rem] p-8 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col border border-black/5 overflow-hidden">
+          
+          <!-- Category Badge -->
+          <div class="absolute top-8 right-8 z-10">
+            <span [ngClass]="project.category === 'personal' ? 'bg-[#7c5dfa]/10 text-[#7c5dfa]' : 'bg-[#FF8A80]/10 text-[#FF8A80]'"
+                  class="px-4 py-1 rounded-full text-[8px] font-black uppercase tracking-widest">
+              {{ project.category }}
+            </span>
+          </div>
+
+          <!-- Image Container -->
+          <div class="relative aspect-[16/10] bg-[#f3f4f6] rounded-[1.5rem] overflow-hidden mb-8 group-hover:scale-[1.02] transition-transform duration-700">
+            <img [src]="project.image" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+            
+            <!-- Overlay for Professional Projects without Repo -->
+            @if (project.category === 'professional' && !project.repoUrl) {
+              <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-6 text-center">
+                <div class="text-white">
+                  <p class="text-[10px] font-black uppercase tracking-[0.2em] mb-2">Confidential Repository</p>
+                  <p class="text-xs font-medium opacity-80">This project was developed for {{ project.company }} and the source code is private.</p>
+                </div>
+              </div>
+            }
+          </div>
+
+          <!-- Project Content -->
+          <div class="flex-1">
+            <h3 class="text-3xl font-black tracking-tight mb-4 group-hover:text-[#7c5dfa] transition-colors">
+              {{ project.title }}
+            </h3>
+            
+            <p class="text-xs font-medium text-gray-500 leading-relaxed mb-6 line-clamp-3">
+              {{ project.description }}
+            </p>
+
+            <!-- Tech Stack -->
+            <div class="flex flex-wrap gap-2 mb-8">
+              @for (tech of project.techs; track tech) {
+                <span class="text-[9px] font-bold text-gray-400 border border-gray-200 px-3 py-1 rounded-full group-hover:border-[#7c5dfa]/30 group-hover:text-black transition-all">
+                  {{ tech }}
+                </span>
+              }
+            </div>
+          </div>
+
+          <!-- Footer Actions -->
+          <div class="flex items-center justify-between pt-6 border-t border-dashed border-black/5">
+            @if (project.company) {
+              <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-gray-300 rounded-full"></span>
+                <span class="text-[9px] font-black uppercase tracking-widest text-gray-400">{{ project.company }}</span>
+              </div>
+            } @else {
+              <div></div>
+            }
+
+            <div class="flex gap-4">
+              @if (project.repoUrl) {
+                <a [href]="project.repoUrl" target="_blank" class="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-[#7c5dfa] transition-colors shadow-lg">
+                  <i class="fab fa-github"></i>
+                </a>
+              }
+              @if (project.liveUrl) {
+                <a [href]="project.liveUrl" target="_blank" class="w-10 h-10 rounded-full bg-white border border-black/10 flex items-center justify-center hover:bg-gray-50 transition-colors shadow-lg">
+                  <i class="fas fa-external-link-alt text-xs"></i>
+                </a>
+              }
+            </div>
+          </div>
+
+          <!-- Background Decorative Shape -->
+          <div class="absolute -bottom-12 -left-12 w-32 h-32 bg-[#7c5dfa]/5 rounded-full group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+        </div>
+      }
+    </div>
+
+    <!-- Empty State -->
+    @if (filteredProjects.length === 0) {
+      <div class="text-center py-20 bg-white rounded-[2.5rem] border border-dashed border-gray-200">
+        <span class="text-4xl mb-4 block">📂</span>
+        <p class="text-[10px] font-black uppercase tracking-widest text-gray-400">No projects found in this category</p>
+      </div>
+    }
+
+    <!-- Footer call to action -->
+    <div class="mt-20 text-center">
+      <p class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-6">Interested in more?</p>
+      <a href="/contact" class="inline-block px-10 py-4 bg-black text-white rounded-full text-xs font-black uppercase tracking-widest hover:bg-[#7c5dfa] transition-all transform hover:-translate-y-1 shadow-lg">
+        Start a project with me →
+      </a>
+    </div>
+  </div>
+</div>
