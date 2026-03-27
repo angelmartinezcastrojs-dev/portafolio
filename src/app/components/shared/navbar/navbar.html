@@ -1,14 +1,76 @@
-<nav class="w-full bg-white py-10 px-6 md:px-20 flex justify-center items-center">
-  <div class="flex items-center space-x-8 md:space-x-12 font-sans">
+<nav class="w-full bg-white/80 backdrop-blur-md sticky top-0 z-50 px-6 py-4 md:px-10 border-b border-black/5">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
     
-      <a href="#" class="text-black hover:opacity-70 transition-opacity">
-        <fa-icon [icon]="faHome" class="text-2xl"></fa-icon>
+    <!-- Logo/Home -->
+    <a routerLink="/" (click)="closeMenu()" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 bg-black rounded-xl flex items-center justify-center text-white font-black text-xl group-hover:bg-[#7c5dfa] transition-all">
+        A
+      </div>
+      <span class="text-xl font-black tracking-tighter hidden sm:block">Angel Martinez</span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center space-x-1">
+      <a routerLink="/" [routerLinkActive]="'bg-gray-100 text-[#7c5dfa]'" [routerLinkActiveOptions]="{ exact: true }" 
+         class="px-5 py-2 rounded-full text-sm font-black tracking-tight hover:bg-gray-50 transition-all uppercase">
+        {{ currentLang() === 'ES' ? 'Sobre mí' : 'About Me' }}
       </a>
-    
-    <a routerLink="/" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }" class="text-black text-lg font-black tracking-tight">Sobre mi</a>
-    <a routerLink="/projects" [routerLinkActive]="'active'" class="text-black text-lg font-black tracking-tight">Proyectos</a>
-    <a routerLink="/experience" [routerLinkActive]="'active'" class="text-black text-lg font-black tracking-tight">Experiencia</a>
-    <a routerLink="/contact" [routerLinkActive]="'active'" class="text-black text-lg font-black tracking-tight">Contacto</a>
-    <!-- <a routerLink="/arte" class="text-black text-lg font-black tracking-tight">Arte</a> -->
+      <a routerLink="/projects" [routerLinkActive]="'bg-gray-100 text-[#7c5dfa]'" 
+         class="px-5 py-2 rounded-full text-sm font-black tracking-tight hover:bg-gray-50 transition-all uppercase">
+        {{ currentLang() === 'ES' ? 'Proyectos' : 'Projects' }}
+      </a>
+      <a routerLink="/experience" [routerLinkActive]="'bg-gray-100 text-[#7c5dfa]'" 
+         class="px-5 py-2 rounded-full text-sm font-black tracking-tight hover:bg-gray-50 transition-all uppercase">
+        {{ currentLang() === 'ES' ? 'Experiencia' : 'Experience' }}
+      </a>
+      <a routerLink="/contact" [routerLinkActive]="'bg-gray-100 text-[#7c5dfa]'" 
+         class="px-5 py-2 rounded-full text-sm font-black tracking-tight hover:bg-gray-50 transition-all uppercase">
+        {{ currentLang() === 'ES' ? 'Contacto' : 'Contact' }}
+      </a>
+
+      <!-- Language Switch Desktop -->
+      <div class="ml-4 pl-4 border-l border-black/10 flex items-center gap-3">
+        <button (click)="toggleLanguage()" 
+                class="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-[#7c5dfa] transition-all">
+          <fa-icon [icon]="faGlobe" class="text-xs"></fa-icon>
+          {{ currentLang() }}
+        </button>
+      </div>
     </div>
+
+    <!-- Mobile Menu Button & Lang Switch -->
+    <div class="flex items-center gap-4 md:hidden bg-white/80 backdrop-blur-md sticky top-0 z-50 px-6 py-4 md:px-10 border-b border-black/5">
+      <button (click)="toggleLanguage()" 
+              class="flex items-center gap-2 px-3 py-1.5 bg-black text-white rounded-full text-[10px] font-black uppercase tracking-widest">
+        {{ currentLang() }}
+      </button>
+      
+      <button (click)="toggleMenu()" class="w-10 h-10 flex items-center justify-center text-black text-2xl focus:outline-none">
+        <fa-icon [icon]="isMenuOpen() ? faTimes : faBars"></fa-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div *ngIf="isMenuOpen()" 
+       class="fixed inset-0 top-[73px] bg-white z-40 md:hidden flex flex-col p-8 space-y-6 animate-in fade-in slide-in-from-top duration-300">
+    <a routerLink="/" (click)="closeMenu()" routerLinkActive="text-[#7c5dfa]" [routerLinkActiveOptions]="{ exact: true }"
+       class="text-4xl font-black tracking-tighter border-b border-black/5 pb-4">
+      {{ currentLang() === 'ES' ? 'Sobre mí' : 'About Me' }}
+    </a>
+    <a routerLink="/projects" (click)="closeMenu()" routerLinkActive="text-[#7c5dfa]"
+       class="text-4xl font-black tracking-tighter border-b border-black/5 pb-4">
+      {{ currentLang() === 'ES' ? 'Proyectos' : 'Projects' }}
+    </a>
+    <a routerLink="/experience" (click)="closeMenu()" routerLinkActive="text-[#7c5dfa]"
+       class="text-4xl font-black tracking-tighter border-b border-black/5 pb-4">
+      {{ currentLang() === 'ES' ? 'Experiencia (CV)' : 'Experience (Resume)' }}
+    </a>
+    <a routerLink="/contact" (click)="closeMenu()" routerLinkActive="text-[#7c5dfa]"
+       class="text-4xl font-black tracking-tighter border-b border-black/5 pb-4">
+      {{ currentLang() === 'ES' ? 'Contacto' : 'Contact' }}
+    </a>
+
+    
+  </div>
 </nav>

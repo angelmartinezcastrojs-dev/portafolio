@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faLinkedinIn, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedinIn, faGithub, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faMapMarkerAlt, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -37,7 +37,7 @@ export class Contact {
     {
       name: 'WhatsApp',
       url: 'https://wa.me/524981057112',
-      icon: faPhoneAlt,
+      icon: faWhatsapp,
       color: '#00D466'
     },
     {

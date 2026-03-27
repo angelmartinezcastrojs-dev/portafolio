@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Label } from '../../components/label/label';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterLink } from '@angular/router';
 
 interface Tech {
   name: string;
@@ -10,12 +11,20 @@ interface Tech {
 
 @Component({
   selector: 'app-about-me',
-  imports: [Label, FontAwesomeModule],
+  imports: [Label, FontAwesomeModule, RouterLink],
   templateUrl: './about-me.html',
   styleUrl: './about-me.css',
 })
 export class AboutMe {
   faEnvelope = faEnvelope;
+  institutions = [
+    { name: 'Udemy', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e3/Udemy_logo.svg' },
+    { name: 'Platzi', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/95/LOGO-PLATZI-2023.svg' },
+    { name: 'Google', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg' },
+    { name: 'Microsoft', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg' },
+    { name: 'LinkedIn Learning', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg' },
+  ];
+
   techs: Tech[] = [
     {
       name: 'Angular',

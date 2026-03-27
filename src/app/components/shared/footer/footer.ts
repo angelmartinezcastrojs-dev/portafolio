@@ -2,18 +2,34 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faLinkedinIn, faGithub, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { RouterLink } from '@angular/router';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule, RouterLink],
+  imports: [
+    CommonModule, 
+    FontAwesomeModule, 
+    RouterLink,
+  ],
   templateUrl: './footer.html',
 })
 export class Footer {
   currentYear = new Date().getFullYear();
   faHeart = faHeart;
+  hideElement = true;
+
+  constructor(private router: Router) {
+    // Escuchamos los cambios de ruta
+    this.router.events.pipe(
+      filter((event: any) => event instanceof NavigationEnd)
+    ).subscribe((event: any) => {
+      // Si la URL incluye 'contacto', ocultamos el elemento
+      this.hideElement = !event.url.includes('/contact');
+    });
+  }
   
   socialLinks = [
     {
