@@ -90,13 +90,13 @@
 
             <div class="flex gap-4">
               @if (project.repoUrl) {
-                <a [href]="project.repoUrl" target="_blank" class="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-[#7c5dfa] transition-colors shadow-lg">
-                  <i class="fab fa-github"></i>
+                <a [href]="project.repoUrl" target="_blank" class="w-10 h-10 rounded-full bg-white border border-black/10 flex items-center justify-center hover:bg-gray-50 transition-colors shadow-lg">
+                  <fa-icon [icon]="faGithub" class="text-xl"></fa-icon>
                 </a>
               }
               @if (project.liveUrl) {
                 <a [href]="project.liveUrl" target="_blank" class="w-10 h-10 rounded-full bg-white border border-black/10 flex items-center justify-center hover:bg-gray-50 transition-colors shadow-lg">
-                  <i class="fas fa-external-link-alt text-xs"></i>
+                  <fa-icon [icon]="faExternalLinkAlt" class="text-xs"></fa-icon>
                 </a>
               }
             </div>
@@ -119,9 +119,9 @@
     <!-- Footer call to action -->
     <div class="mt-20 text-center">
       <p class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-6">Interested in more?</p>
-      <a href="/contact" class="inline-block px-10 py-4 bg-black text-white rounded-full text-xs font-black uppercase tracking-widest hover:bg-[#7c5dfa] transition-all transform hover:-translate-y-1 shadow-lg">
+      <button routerLink="/contact" class="inline-block px-10 py-4 bg-black text-white rounded-full text-xs font-black uppercase tracking-widest hover:bg-[#7c5dfa] transition-all transform hover:-translate-y-1 shadow-lg">
         Start a project with me →
-      </a>
+      </button>
     </div>
   </div>
 </div>
