@@ -39,11 +39,19 @@
       </div>
     </div>
 
-    <div class="lg:col-span-8 flex flex-col gap-5">
+    <div class="lg:col-span-8 flex flex-col gap-3">
       
-      <div class="flex justify-between items-end px-2">
-        <h1 class="font-black tracking-tighter leading-none" style="font-size: 4rem;">Portafolio</h1>
-        <button class="cursor-pointer px-6 py-2 border border-black rounded-full text-[10px] font-black uppercase hover:bg-black hover:text-white transition-all" routerLink="/projects">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end px-2 mb-0 gap-6">
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase opacity-50 mb-1">
+            <span class="w-2 h-2 bg-[#7c5dfa] rounded-full"></span>
+            Selected Works
+          </div>
+          <h1 class="font-black tracking-tighter leading-none m-0 p-0 bg-clip-text text-transparent bg-gradient-to-r from-black via-gray-800 to-[#7c5dfa]" style="font-size: 4rem;">
+            Portfolio
+          </h1>
+        </div>
+        <button class="cursor-pointer px-8 py-3 bg-black text-white rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-[#7c5dfa] transition-all transform hover:-translate-y-1 shadow-lg" routerLink="/projects">
           All Projects →
         </button>
       </div>
@@ -53,7 +61,7 @@
         <div class="md:col-span-2 bg-white rounded-[2.5rem] p-6 shadow-sm flex flex-col group cursor-pointer hover:scale-[1.02] transition-transform duration-500">
           <div class="relative aspect-[16/9] bg-[#e0f2f1] rounded-[1.5rem] overflow-hidden mb-4">
             <!-- <img src="assets/project1.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"> -->
-            <!-- <iframe width="560" height="315" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://www.youtube.com/embed/rAy47ZvMM6E?si=2gK0JpBToIE7LqyM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+            <iframe width="560" height="315" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://www.youtube.com/embed/rAy47ZvMM6E?si=2gK0JpBToIE7LqyM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <!-- <div class="absolute inset-0 flex items-center justify-center">
               <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
                 <div class="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-black border-b-[6px] border-b-transparent ml-1"></div> 
@@ -91,7 +99,7 @@
         </div>
 
         <div class="bg-[#2d2d2d] rounded-[2.5rem] p-8 text-white flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-transform duration-500">
-          <span class="text-[10px] font-bold uppercase tracking-widest opacity-60">Idiomas</span>
+          <span class="text-[10px] font-bold uppercase tracking-widest opacity-60">Languages</span>
           <span class="text-[28px] font-bold">English B2🗽</span>
           <div class="flex">
             <span class="text-xs font-bold">Español Nativo </span>
