@@ -13,7 +13,6 @@ interface experience {
   standalone: true,
   imports: [CommonModule],
   templateUrl: './experience.html',
-  styleUrl: './experience.css',
 })
 export class Experience {
   experiences: experience[] = [
@@ -75,4 +74,8 @@ export class Experience {
       image: 'itszn.jpeg'
     }
   ];
+
+  downloadResume() {
+    window.open('resume/Angel_Martinez_Software_Engineer.pdf', '_blank');
+  }
 }

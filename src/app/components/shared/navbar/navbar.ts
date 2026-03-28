@@ -18,7 +18,7 @@ export class Navbar {
   faGlobe = faGlobe;
 
   isMenuOpen = signal(false);
-  currentLang = signal<'ES' | 'EN'>('ES');
+  currentLang = signal<'EN' | 'ES'>('EN');
 
   toggleMenu() {
     this.isMenuOpen.update(v => !v);

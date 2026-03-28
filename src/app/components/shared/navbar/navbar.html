@@ -21,7 +21,8 @@
       </a>
       <a routerLink="/experience" [routerLinkActive]="'bg-gray-100 text-[#7c5dfa]'" 
          class="px-5 py-2 rounded-full text-sm font-black tracking-tight hover:bg-gray-50 transition-all uppercase">
-        {{ currentLang() === 'ES' ? 'Experiencia' : 'Experience' }}
+        {{ currentLang() === 'ES' ? 'Experiencia (Descargar CV)' : 'Experience' }}
+        <span class="text-[10px] font-black uppercase tracking-widest">(Download Resume)</span>
       </a>
       <a routerLink="/contact" [routerLinkActive]="'bg-gray-100 text-[#7c5dfa]'" 
          class="px-5 py-2 rounded-full text-sm font-black tracking-tight hover:bg-gray-50 transition-all uppercase">
@@ -29,13 +30,14 @@
       </a>
 
       <!-- Language Switch Desktop -->
-      <div class="ml-4 pl-4 border-l border-black/10 flex items-center gap-3">
+       <!-- TODO activate when we have a translation service -->
+      <!-- <div class="ml-4 pl-4 border-l border-black/10 flex items-center gap-3">
         <button (click)="toggleLanguage()" 
                 class="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-[#7c5dfa] transition-all">
           <fa-icon [icon]="faGlobe" class="text-xs"></fa-icon>
           {{ currentLang() }}
         </button>
-      </div>
+      </div> -->
     </div>
 
     <!-- Mobile Menu Button & Lang Switch -->
