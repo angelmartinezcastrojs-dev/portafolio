@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ExperienceInterface } from '../../core/models/experience.interface';
 
-interface experience {
-  company: string;
-  role: string;
-  period: string;
-  description: string[];
-  image?: string;
-}
 @Component({
   selector: 'app-experience',
   standalone: true,
@@ -15,7 +9,7 @@ interface experience {
   templateUrl: './experience.html',
 })
 export class Experience {
-  experiences: experience[] = [
+  experiences: ExperienceInterface[] = [
     {
       company: 'IDS Comercial-TI',
       role: 'Data Engineer Trainee',

@@ -9,7 +9,7 @@ import { certificatesData } from '../../assets/data/certifications.data';
 import { techsData } from '../../assets/data/techs.data';
 import { institutionsData } from '../../assets/data/institutions.data';
 import { Certificate } from '../../core/models/certificate.interface';
-import { Tech } from '../../core/models/Tech.interface';
+import { Tech } from '../../core/models/tech.interface';
 
 @Component({
   selector: 'app-about-me',
