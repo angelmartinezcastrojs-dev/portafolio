@@ -1,9 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Label } from '../../components/label/label';
 import { faEnvelope, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faAws } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CertificateModal } from '../../components/certificate-modal/certificate-modal';
 import { certificatesData } from '../../assets/data/certifications.data';
 import { techsData } from '../../assets/data/techs.data';
@@ -18,21 +18,29 @@ import { Tech } from '../../core/models/tech.interface';
     Label, 
     FontAwesomeModule, 
     RouterLink, 
-    CertificateModal
+    CertificateModal,
   ],
   templateUrl: './about-me.html',
   styleUrl: './about-me.css',
 })
 export class AboutMe {
+  
+  private router = inject(Router);
+
   faEnvelope = faEnvelope;
   faAws = faAws;
   faPlus = faPlus;
+
   
   isModalOpen = signal(false);
 
   certificates: Certificate[] = certificatesData;
   institutions = institutionsData;
   techs: Tech[] = techsData;
+
+  goToExperience() {
+    this.router.navigate(['/experience']);
+  }
 
   openModal() {
     this.isModalOpen.set(true);
