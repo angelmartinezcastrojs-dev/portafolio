@@ -46,7 +46,7 @@ export class Footer {
     },
     {
       name: 'WhatsApp',
-      url: 'https://wa.me/524981057112',
+      url: 'https://wa.me/524981057112?text=Hola!%20Vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20colaborar%20contigo.',
       icon: faWhatsapp,
       color: '#25D366'
     },

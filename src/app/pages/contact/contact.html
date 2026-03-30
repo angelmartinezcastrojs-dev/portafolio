@@ -82,11 +82,11 @@
 
           <h3 class="text-2xl font-black mb-8">Send me a message</h3>
           
-          <form class="space-y-6">
+          <form class="space-y-6" (submit)="sendEmail(name.value, subject.value, message.value); $event.preventDefault()">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="space-y-2">
                 <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-4">Full Name</label>
-                <input type="text" placeholder="John Doe" 
+                <input #name type="text" placeholder="John Doe" 
                        class="w-full bg-[#f3f4f6] border-none rounded-2xl px-6 py-4 text-sm font-bold focus:ring-2 focus:ring-[#7c5dfa] transition-all">
               </div>
               <div class="space-y-2">
@@ -98,18 +98,18 @@
 
             <div class="space-y-2">
               <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-4">Subject</label>
-              <input type="text" placeholder="Project Inquiry" 
+              <input #subject type="text" placeholder="Project Inquiry" 
                      class="w-full bg-[#f3f4f6] border-none rounded-2xl px-6 py-4 text-sm font-bold focus:ring-2 focus:ring-[#7c5dfa] transition-all">
             </div>
 
             <div class="space-y-2">
               <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-4">Your Message</label>
-              <textarea rows="5" placeholder="Tell me about your project..." 
+              <textarea #message rows="5" placeholder="Tell me about your project..." 
                         class="w-full bg-[#f3f4f6] border-none rounded-2xl px-6 py-4 text-sm font-bold focus:ring-2 focus:ring-[#7c5dfa] transition-all resize-none"></textarea>
             </div>
 
             <button type="submit" 
-                    class="w-full bg-black text-white rounded-2xl py-4 text-xs font-black uppercase tracking-widest hover:bg-[#7c5dfa] transition-all transform hover:shadow-lg">
+                    class="w-full bg-black text-white rounded-2xl py-4 text-xs font-black uppercase tracking-widest hover:bg-[#7c5dfa] transition-all transform hover:shadow-lg cursor-pointer">
               Send Message →
             </button>
           </form>
@@ -119,10 +119,6 @@
     </div>
 
     <!-- Footer decoration -->
-    <div class="mt-20 flex justify-center gap-10 opacity-10 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-       <span class="text-4xl">✨</span>
-       <span class="text-4xl">🚀</span>
-       <span class="text-4xl">💡</span>
-    </div>
+    
   </div>
 </div>

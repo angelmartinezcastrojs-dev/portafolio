@@ -134,11 +134,4 @@ export const certificatesData: Certificate[] = [
       url: 'https://platzi.com/p/angel.martinez.c/curso/9574-course/diploma/detalle/',
       logo: 'https://upload.wikimedia.org/wikipedia/commons/9/95/LOGO-PLATZI-2023.svg'
     },
-    {
-      title: 'Curso de Django',
-      institution: 'Platzi',
-      date: 'Dec 2025',
-      url: 'https://platzi.com/p/angel.martinez.c/curso/1835-course/diploma/detalle/',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/9/95/LOGO-PLATZI-2023.svg'
-    },
   ];

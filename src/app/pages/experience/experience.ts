@@ -21,7 +21,7 @@ export class Experience {
         '•	Optimized data retrieval by designing advanced PostgreSQL queries, implementing complex joins and indexing strategies to improve database performance.',
         '•	Architected end-to-end development workflows, from local environment setup to production-ready cloud deployment.',
       ],
-      image: 'white.png' // Usando la imagen existente como placeholder
+      image: '' // Usando la imagen existente como placeholder
     },
     {
       company: 'IDS Comercial-TI',
@@ -37,7 +37,7 @@ export class Experience {
         '•	Managed core library migrations and dependency updates, ensuring system security and compatibility across multiple environments.',
 
       ],
-      image: 'white.png'
+      image: ''
     },
     {
       company: 'YoContigo-TI',

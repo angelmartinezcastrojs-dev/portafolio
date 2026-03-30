@@ -36,7 +36,7 @@ export class Contact {
     },
     {
       name: 'WhatsApp',
-      url: 'https://wa.me/524981057112',
+      url: 'https://wa.me/524981057112?text=Hola!%20Vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20colaborar%20contigo.',
       icon: faWhatsapp,
       color: '#00D466'
     },
@@ -47,4 +47,11 @@ export class Contact {
       color: '#E4405F'
     },
   ];
+  
+  sendEmail(name: string, subject: string, message: string) {
+    const encodedSubject = encodeURIComponent(subject || 'New Contact from Portfolio');
+    const body = `Name: ${name}\n\nMessage:\n${message}`;
+    const encodedBody = encodeURIComponent(body);
+    window.location.href = `mailto:angel.martinez.castrojs@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
+  }
 }
