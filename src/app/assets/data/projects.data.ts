@@ -2,6 +2,14 @@ import { Project } from "../../core/models/project.interface";
 
 export const projesctData: Project[] = [
     {
+      title: 'Agenda Noxit',
+      description: 'A modern Web where you can get appointments with professional services. (psicologist, doctor, etc.)',
+      techs: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'Javascript', 'HTML5', 'Trae', 'Git', 'GitHub'],
+      image: 'projects-images/noxit.png',
+      liveUrl: 'https://noxit.net/agenda/psicologo',
+      category: 'professional'
+    },
+    {
       title: 'Personal Portfolio',
       description: 'A modern and interactive portfolio built with Angular and Tailwind CSS, featuring a unique card-based design and smooth animations.',
       techs: ['Angular 20', 'Tailwind CSS', 'TypeScript', 'HTML5', 'Trae', 'Git', 'GitHub'],
