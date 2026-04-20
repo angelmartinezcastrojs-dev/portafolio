@@ -8,7 +8,7 @@ import { ExperienceInterface } from '../../core/models/experience.interface';
   imports: [CommonModule],
   templateUrl: './experience.html',
 })
-export class Experience {
+export default class Experience {
   experiences: ExperienceInterface[] = [
     {
       company: 'IDS Comercial-TI',

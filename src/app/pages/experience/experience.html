@@ -4,96 +4,115 @@
     <div class="flex flex-col mb-12">
       <div class="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase opacity-60 mb-2">
         <span class="w-2 h-2 bg-[#7c5dfa] rounded-full animate-pulse"></span>
-        Trayectoria Profesional
+        Professional Experience
       </div>
-      <h1 class="text-6xl font-black tracking-tighter leading-none mb-4">Experiencia</h1>
+      <h1 class="text-6xl font-black tracking-tighter leading-none mb-4">Experience</h1>
       <div class="w-20 h-1 bg-[#7c5dfa] rounded-full"></div>
     </div>
 
     <!-- Timeline Container -->
     <div class="relative">
       <!-- Vertical Line -->
-      <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#7c5dfa] via-[#FF8A80] to-[#FFD54F] opacity-30"></div>
+      <div
+        class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#7c5dfa] via-[#FF8A80] to-[#FFD54F] opacity-30">
+      </div>
 
       <!-- Experience Items -->
       <div class="space-y-16">
         @for (exp of experiences; track exp.company; let i = $index) {
-          <div class="relative flex flex-col md:flex-row items-center group">
-            
-            <!-- Timeline Dot -->
-            <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-[#f3f4f6] bg-[#7c5dfa] z-10 transition-transform duration-300 group-hover:scale-150 group-hover:bg-[#FF8A80]"></div>
+        <div class="relative flex flex-col md:flex-row items-center group">
 
-            <!-- Left Side (Card or Image) -->
-            <div class="w-full md:w-1/2 mb-8 md:mb-0" [ngClass]="{'md:order-1 md:pr-16': i % 2 === 0, 'md:order-2 md:pl-16': i % 2 !== 0}">
-              <!-- Content Card -->
-              <div class="bg-white p-8 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-500 border border-transparent hover:border-[#7c5dfa]/10 relative overflow-hidden group/card">
-                
-                <!-- Decorative element -->
-                <div class="absolute -top-6 -right-6 w-24 h-24 bg-[#7c5dfa]/5 rounded-full group-hover/card:scale-150 transition-transform duration-700"></div>
-
-                <span class="inline-block px-4 py-1 rounded-full bg-[#7c5dfa]/10 text-[#7c5dfa] text-[10px] font-black uppercase tracking-widest mb-4">
-                  {{ exp.period }}
-                </span>
-                
-                <h3 class="text-2xl font-black tracking-tight mb-1 group-hover/card:text-[#7c5dfa] transition-colors">
-                  {{ exp.role }}
-                </h3>
-                
-                <p class="text-sm font-bold text-gray-500 mb-4 flex items-center gap-2">
-                  <span class="w-4 h-[1px] bg-gray-300"></span>
-                  {{ exp.company }}
-                </p>
-                @for (item of exp.description; track item) {
-                  <p class="text-xs font-medium text-gray-400 leading-relaxed">
-                    {{ item }}
-                  </p>
-                }
-                <!-- Corner Accent -->
-                <div class="absolute bottom-0 right-0 w-8 h-8 opacity-0 group-hover/card:opacity-100 transition-opacity">
-                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M32 32L0 32C0 32 12 32 20 24C28 16 32 0 32 0L32 32Z" fill="#7c5dfa" fill-opacity="0.1"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right Side (Image or Card) -->
-            <div class="w-full md:w-1/2 flex items-center justify-center pl-12 md:pl-0" [ngClass]="{'md:order-2 md:pl-16': i % 2 === 0, 'md:order-1 md:pr-16': i % 2 !== 0}">
-              <!-- Image Container -->
-              <div class="relative w-full max-w-[350px] aspect-square rounded-[2.5rem] overflow-hidden group/img shadow-md hover:shadow-2xl transition-all duration-500 bg-[#f3f4f6]">
-                @if (exp.image) {
-                  <img [src]="exp.image" class="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-700" [alt]="exp.company">
-                } @else {
-                  <div class="w-full h-full bg-gradient-to-tr from-[#7c5dfa] to-blue-500 flex flex-col items-center justify-center group-hover/img:scale-110 transition-transform duration-700 relative overflow-hidden shadow-inner">
-                    <div class="w-64 h-64 bg-white/20 rounded-full blur-3xl absolute -top-10 -left-10 animate-pulse"></div>
-                    <span class="text-7xl font-black text-white/40 truncate px-4 drop-shadow-md">{{ exp.company.slice(0, 1) }}</span>
-                    <span class="text-[9px] font-black text-white/50 uppercase tracking-[0.2em] mt-4 px-8 text-center">{{ exp.company }}</span>
-                  </div>
-                }
-                
-                <!-- Overlay Decoration -->
-                <div class="absolute inset-0 bg-gradient-to-t from-[#7c5dfa]/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                   <div class="text-white">
-                      <p class="text-[10px] font-black uppercase tracking-widest">{{ exp.company }}</p>
-                      <p class="text-xs font-bold">{{ exp.period }}</p>
-                   </div>
-                </div>
-
-                <!-- Floating Badge -->
-                <div class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-lg shadow-lg transform -rotate-12 group-hover/img:rotate-0 transition-transform">
-                  💼
-                </div>
-              </div>
-            </div>
-
+          <!-- Timeline Dot -->
+          <div
+            class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-[#f3f4f6] bg-[#7c5dfa] z-10 transition-transform duration-300 group-hover:scale-150 group-hover:bg-[#FF8A80]">
           </div>
+
+          <!-- Left Side (Card or Image) -->
+          <div class="w-full md:w-1/2 mb-8 md:mb-0"
+            [ngClass]="{'md:order-1 md:pr-16': i % 2 === 0, 'md:order-2 md:pl-16': i % 2 !== 0}">
+            <!-- Content Card -->
+            <div
+              class="bg-white p-8 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-500 border border-transparent hover:border-[#7c5dfa]/10 relative overflow-hidden group/card">
+
+              <!-- Decorative element -->
+              <div
+                class="absolute -top-6 -right-6 w-24 h-24 bg-[#7c5dfa]/5 rounded-full group-hover/card:scale-150 transition-transform duration-700">
+              </div>
+
+              <span
+                class="inline-block px-4 py-1 rounded-full bg-[#7c5dfa]/10 text-[#7c5dfa] text-[10px] font-black uppercase tracking-widest mb-4">
+                {{ exp.period }}
+              </span>
+
+              <h3 class="text-2xl font-black tracking-tight mb-1 group-hover/card:text-[#7c5dfa] transition-colors">
+                {{ exp.role }}
+              </h3>
+
+              <p class="text-sm font-bold text-gray-500 mb-4 flex items-center gap-2">
+                <span class="w-4 h-[1px] bg-gray-300"></span>
+                {{ exp.company }}
+              </p>
+              @for (item of exp.description; track item) {
+              <p class="text-xs font-medium text-gray-400 leading-relaxed">
+                {{ item }}
+              </p>
+              }
+              <!-- Corner Accent -->
+              <div class="absolute bottom-0 right-0 w-8 h-8 opacity-0 group-hover/card:opacity-100 transition-opacity">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M32 32L0 32C0 32 12 32 20 24C28 16 32 0 32 0L32 32Z" fill="#7c5dfa" fill-opacity="0.1" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side (Image or Card) -->
+          <div class="w-full md:w-1/2 flex items-center justify-center pl-12 md:pl-0"
+            [ngClass]="{'md:order-2 md:pl-16': i % 2 === 0, 'md:order-1 md:pr-16': i % 2 !== 0}">
+            <!-- Image Container -->
+            <div
+              class="relative w-full max-w-[350px] aspect-square rounded-[2.5rem] overflow-hidden group/img shadow-md hover:shadow-2xl transition-all duration-500 bg-[#f3f4f6]">
+              @if (exp.image) {
+              <img [src]="exp.image"
+                class="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-700"
+                [alt]="exp.company">
+              } @else {
+              <div
+                class="w-full h-full bg-gradient-to-tr from-[#7c5dfa] to-blue-500 flex flex-col items-center justify-center group-hover/img:scale-110 transition-transform duration-700 relative overflow-hidden shadow-inner">
+                <div class="w-64 h-64 bg-white/20 rounded-full blur-3xl absolute -top-10 -left-10 animate-pulse"></div>
+                <span class="text-7xl font-black text-white/40 truncate px-4 drop-shadow-md">{{ exp.company.slice(0, 1)
+                  }}</span>
+                <span class="text-[9px] font-black text-white/50 uppercase tracking-[0.2em] mt-4 px-8 text-center">{{
+                  exp.company }}</span>
+              </div>
+              }
+
+              <!-- Overlay Decoration -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#7c5dfa]/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                <div class="text-white">
+                  <p class="text-[10px] font-black uppercase tracking-widest">{{ exp.company }}</p>
+                  <p class="text-xs font-bold">{{ exp.period }}</p>
+                </div>
+              </div>
+
+              <!-- Floating Badge -->
+              <div
+                class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-lg shadow-lg transform -rotate-12 group-hover/img:rotate-0 transition-transform">
+                💼
+              </div>
+            </div>
+          </div>
+
+        </div>
         }
       </div>
     </div>
 
     <!-- Call to action -->
     <div class="mt-20 text-center">
-      <button (click)="downloadResume()" class="cursor-pointer inline-block px-10 py-4 bg-black text-white rounded-full text-xs font-black uppercase tracking-widest hover:bg-[#7c5dfa] transition-all transform hover:-translate-y-1 shadow-lg">
+      <button (click)="downloadResume()"
+        class="cursor-pointer inline-block px-10 py-4 bg-black text-white rounded-full text-xs font-black uppercase tracking-widest hover:bg-[#7c5dfa] transition-all transform hover:-translate-y-1 shadow-lg">
         Download Full Resume ↓
       </button>
     </div>

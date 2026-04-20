@@ -15,23 +15,23 @@ import { Tech } from '../../core/models/tech.interface';
   selector: 'app-about-me',
   standalone: true,
   imports: [
-    Label, 
-    FontAwesomeModule, 
-    RouterLink, 
+    Label,
+    FontAwesomeModule,
+    RouterLink,
     CertificateModal,
   ],
   templateUrl: './about-me.html',
   styleUrl: './about-me.css',
 })
-export class AboutMe {
-  
+export default class AboutMe {
+
   private router = inject(Router);
 
   faEnvelope = faEnvelope;
   faAws = faAws;
   faPlus = faPlus;
 
-  
+
   isModalOpen = signal(false);
 
   certificates: Certificate[] = certificatesData;

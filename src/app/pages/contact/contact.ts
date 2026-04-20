@@ -10,7 +10,7 @@ import { faEnvelope, faMapMarkerAlt, faPhoneAlt } from '@fortawesome/free-solid-
   imports: [CommonModule, FontAwesomeModule],
   templateUrl: './contact.html',
 })
-export class Contact {
+export default class Contact {
   faEnvelope = faEnvelope;
   faMapMarkerAlt = faMapMarkerAlt;
   faPhoneAlt = faPhoneAlt;
@@ -47,7 +47,7 @@ export class Contact {
       color: '#E4405F'
     },
   ];
-  
+
   sendEmail(name: string, subject: string, message: string) {
     const encodedSubject = encodeURIComponent(subject || 'New Contact from Portfolio');
     const body = `Name: ${name}\n\nMessage:\n${message}`;
